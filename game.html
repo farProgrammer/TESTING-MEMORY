@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Lets PLAY MEMEORY GAME</title>
+      <meta name="description" content="">
+      <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+      <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+      <link rel="stylesheet" href="game.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <body>
+      <div class="container">
+         <header>
+            <h1>LETS PLAY MEMEORY GAME! </h1>
+         </header>
+         <section class="score-panel">
+            <ul id="stars">
+               <li id="star1"><i class="fa fa-star"></i></li>
+               <li id="star2"><i class="fa fa-star"></i></li>
+               <li id="star3"><i class="fa fa-star"></i></li>
+            </ul>
+            <span class="moves">0</span> Moves
+            <div class="timer">
+               <label id="minutes">00</label>:<label id="seconds">00</label>
+            </div>
+            <button id="restart">
+            <i class="fa fa-repeat"></i>
+            </button>
+         </section>
+         <ul class="deck">
+            <li class="card braille">
+               <i class="fas fa-braille"></i>
+            </li>
+            <li class="card blind">
+               <i class="fas fa-blind"></i>
+            </li>
+            <li class="card access">
+               <i class="fas fa-universal-access"></i>
+            </li>
+            <li class="card accessible">
+               <i class="fab fa-accessible-icon"></i>
+            </li>
+            <li class="card thumbs">
+               <i class="fas fa-thumbs-up"></i>
+            </li>
+            <li class="card access">
+               <i class="fas fa-universal-access"></i>
+            </li>
+            <li class="card users">
+               <i class="fas fa-users"></i>
+            </li>
+            <li class="card listening">
+               <i class="fas fa-assistive-listening-systems"></i>
+            </li>
+            <li class="card braille">
+               <i class="fas fa-braille"></i>
+            </li>
+            <li class="card interpreting">
+               <i class="fas fa-american-sign-language-interpreting"></i>
+            </li>
+            <li class="card users">
+               <i class="fas fa-users"></i>
+            </li>
+            <li class="card interpreting">
+               <i class="fas fa-american-sign-language-interpreting"></i>
+            </li>
+            <li class="card accessible">
+               <i class="fab fa-accessible-icon"></i>
+            </li>
+            <li class="card listening">
+               <i class="fas fa-assistive-listening-systems"></i>
+            </li>
+            <li class="card blind">
+               <i class="fas fa-blind"></i>
+            </li>
+            <li class="card thumbs">
+               <i class="fas fa-thumbs-up"></i>
+            </li>
+         </ul>
+      </div>
+      <div id="myModal" class="modal">
+         <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Congratulations!</h2>
+            <p>You matched all the pairs in <span id=finalMoves> </span> moves.</p>
+            <p>In a time of <span id=finalTime>.</span></p>
+            <p>You have a star rating of <span id=finalStars></span></p>
+            <p><button id="closeModal">Play Again?</button></p>
+         </div>
+      </div>
+      <script src="game.js"></script>
+   </body>
+</html>

@@ -1,0 +1,404 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: moccasin;
+	
+	font-family: 'Kaushan Script', cursive;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h1 {
+	font-family: 'Bungee Inline', sans-serif;
+	font-weight: 400;
+	text-decoration:  red  underline;
+
+
+}
+
+.fa-star {
+	font-size: 25px;
+	color:maroon;
+	
+}
+
+.moves {
+	margin: 20px 0 20px 0;
+	font-size: 25px;
+	color: darkblue;
+}
+
+.timer {
+	margin: 20px 0 20px 0;
+	text-align: left;
+	font-size: 25px;
+	color :darkgreen;
+}
+
+
+
+
+.deck {
+	width: 660px;
+	min-height: 680px;
+	background: linear-gradient(160deg, #02ccba 0%, #888 100%);
+	padding: 32px;
+	border-radius: 10px;
+	box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 0 3em;
+}
+
+.deck .card {
+	height: 125px;
+	width: 125px;
+	background-color: lightgoldenrodyellow;
+	font-size: 0;
+	color: red;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.show {
+	transform: rotateY(0);
+	background: #02b3e4;
+	font-size: 33px;
+	cursor: default;
+  pointer-events: none;
+}
+
+.deck .card.open {
+	-webkit-animation-name: flipInX;
+	animation-name: flipInX;
+	animation-duration: .85s;
+}
+
+.deck .card.unmatched {
+	-webkit-animation-name: shake;
+	animation-name: shake;
+  animation-delay: 0.30s;
+	animation-duration: 0.9s;
+}
+
+.deck .card.match {
+	cursor: default;
+	background: #02ccba;
+	font-size: 40px;
+	-webkit-animation-name: pulse;
+	animation-name: pulse;
+	animation-duration: .85s;
+}
+
+.deck .card.disabled {
+	pointer-events: none;
+}
+
+
+
+@-webkit-keyframes pulse {
+	from {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		-webkit-transform: scale3d(1.05, 1.05, 1.05);
+		transform: scale3d(1.05, 1.05, 1.05);
+	}
+	to {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes pulse {
+	from {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		-webkit-transform: scale3d(1.05, 1.05, 1.05);
+		transform: scale3d(1.05, 1.05, 1.05);
+	}
+	to {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@-webkit-keyframes flipInX {
+	from {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+	40% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	60% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		opacity: 1;
+	}
+	80% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+	}
+	to {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+	}
+}
+
+@keyframes flipInX {
+	from {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+	40% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	60% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		opacity: 1;
+	}
+	80% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+	}
+	to {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+	}
+}
+
+@-webkit-keyframes shake {
+	from,
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(10px, 0, 0);
+		transform: translate3d(10px, 0, 0);
+	}
+}
+
+@keyframes shake {
+	from,
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(10px, 0, 0);
+		transform: translate3d(10px, 0, 0);
+	}
+}
+
+
+
+
+.score-panel {
+	text-align: left;
+	width: 345px;
+	margin-bottom: 10px;
+}
+
+.score-panel #stars {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin: 0 5px 0 0;
+}
+
+.score-panel #stars li {
+	list-style: none;
+	display: inline-block;
+}
+
+.score-panel #restart {
+	float: right;
+	cursor: pointer;
+	font-size: 30px;
+	border-radius: 0;
+}
+
+
+
+
+.modal {
+	display: none;
+	position: fixed;
+	
+	z-index: 1;
+	
+  left: 0;
+  top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	
+	background-color: rgb(0, 0, 0);
+
+	background-color: rgba(0, 0, 0, 0.4);
+	
+}
+
+
+
+
+.modal-content {
+  position: relative;
+	background-color: lightcoral;
+	margin: 15% auto;
+	
+	padding: 20px 10px 20px 10px;
+  border: 1px solid #888;
+  width: 55%;
+	
+	font-family: 'Kaushan Script', cursive;
+	
+  text-align: center;
+  text-decoration: underline;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0
+	}
+	to {
+		top: 0;
+		opacity: 1
+	}
+}
+
+#finalStars li {
+  list-style: none;
+  display: inline-block;
+}
+
+
+
+.close {
+	color: black;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  display: block;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#closeModal {
+  color: black;
+  align-content: center;
+  padding: 5px 5px 5px 5px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .score-panel {
+    width: 300px;
+    font-size: 11px;
+  }
+
+  .deck {
+    width: 300px;
+    min-height: 310px;
+  }
+
+  .deck .card {
+    width: 55px;
+    height: 55px;
+  }
+
+  .deck .card.show {
+    font-size: 23px;
+  }
+
+  .deck .card.match {
+    font-size: 25px;
+  }
+
+  .modal-content {
+    width: 90%;
+    font-size: 9px;
+  }
+
+  #finalStars {
+    font-size: 7px;
+  }
+}
